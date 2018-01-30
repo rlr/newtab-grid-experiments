@@ -1,0 +1,171 @@
+.card-outer {
+  @include context-menu-button;
+  background: $white;
+  border-radius: $border-radius;
+  display: inline-block;
+  height: $card-height;
+  margin-inline-end: $base-gutter;
+  position: relative;
+  width: $card-width;
+
+  &.placeholder {
+    background: transparent;
+
+    .card {
+      box-shadow: inset $inner-box-shadow;
+    }
+  }
+
+  .card {
+    border-radius: $border-radius;
+    box-shadow: $shadow-secondary;
+    height: 100%;
+  }
+
+  > a {
+    color: inherit;
+    display: block;
+    height: 100%;
+    outline: none;
+    position: absolute;
+    width: $card-width;
+
+    &:-moz-any(.active, :focus) {
+      .card {
+        @include fade-in-card;
+      }
+
+      .card-title {
+        color: $link-primary;
+      }
+    }
+  }
+
+  &:-moz-any(:hover, :focus, .active):not(.placeholder) {
+    @include fade-in-card;
+    @include context-menu-button-hover;
+    outline: none;
+
+    .card-title {
+      color: $link-primary;
+    }
+  }
+
+  .card-preview-image-outer {
+    background-color: $background-primary;
+    border-radius: $border-radius $border-radius 0 0;
+    height: $card-preview-image-height;
+    overflow: hidden;
+    position: relative;
+
+    &::after {
+      border-bottom: 1px solid $black-5;
+      bottom: 0;
+      content: '';
+      position: absolute;
+      width: 100%;
+    }
+
+    .card-preview-image {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1s $photon-easing;
+      width: 100%;
+
+      &.loaded {
+        opacity: 1;
+      }
+    }
+  }
+
+  .card-details {
+    padding: 15px 16px 12px;
+
+    &.no-image {
+      padding-top: 16px;
+    }
+  }
+
+  .card-text {
+    max-height: 4 * $card-text-line-height + $card-title-margin;
+    overflow: hidden;
+
+    &.no-image {
+      max-height: 10 * $card-text-line-height + $card-title-margin;
+    }
+
+    &.no-host-name,
+    &.no-context {
+      max-height: 5 * $card-text-line-height + $card-title-margin;
+    }
+
+    &.no-image.no-host-name,
+    &.no-image.no-context {
+      max-height: 11 * $card-text-line-height + $card-title-margin;
+    }
+
+    &.no-host-name.no-context {
+      max-height: 6 * $card-text-line-height + $card-title-margin;
+    }
+
+    &.no-image.no-host-name.no-context {
+      max-height: 12 * $card-text-line-height + $card-title-margin;
+    }
+
+    &:not(.no-description) .card-title {
+      max-height: 3 * $card-text-line-height;
+      overflow: hidden;
+    }
+  }
+
+  .card-host-name {
+    color: $text-secondary;
+    font-size: 10px;
+    overflow: hidden;
+    padding-bottom: 4px;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+  }
+
+  .card-title {
+    font-size: 14px;
+    line-height: $card-text-line-height;
+    margin: 0 0 $card-title-margin;
+    word-wrap: break-word;
+  }
+
+  .card-description {
+    font-size: 12px;
+    line-height: $card-text-line-height;
+    margin: 0;
+    overflow: hidden;
+    word-wrap: break-word;
+  }
+
+  .card-context {
+    bottom: 0;
+    color: $text-secondary;
+    display: flex;
+    font-size: 11px;
+    left: 0;
+    padding: 12px 16px 12px 14px;
+    position: absolute;
+    right: 0;
+  }
+
+  .card-context-icon {
+    fill: $fill-secondary;
+    margin-inline-end: 6px;
+  }
+
+  .card-context-label {
+    flex-grow: 1;
+    line-height: $icon-size;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

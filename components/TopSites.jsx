@@ -30,11 +30,82 @@ const data = [
     label: "twitter",
     url: "https://twitter.com/",
     image: "https://abs-0.twimg.com/responsive-web/web/ltr/icon-ios.a9cd885bccbcaf2f.png"
+  },
+  {
+    label: "yahoo",
+    url: "https://yahoo.com",
+    image: "https://s.yimg.com/dh/ap/default/130909/y_200_a.png"
+  },
+  {
+    label: "msn",
+    url: "https://msn.com",
+    image: "https://static-global-s-msn-com.akamaized.net/hp-eus/sc/fc/2ba87e.png"
+  },
+  {
+    label: "twitch",
+    url: "https://twitch.tv",
+    image: "https://m.twitch.tv/apple-touch-icon.png"
+  },
+  {
+    label: "github",
+    url: "https://github.com",
+    image: "https://github.com/apple-touch-icon-180x180.png"
+  },
+  {
+    label: "ok",
+    url: "https://ok.ru",
+    image: "https://m.ok.ru/mres/img/browser-theme/oklogo.png"
+  },
+  {
+    label: "paypal",
+    url: "https://paypal.com",
+    image: "https://www.paypalobjects.com/webstatic/icon/pp196.png"
+  },
+  {
+    label: "tumblr",
+    url: "https://tumblr.com",
+    image: "https://assets.tumblr.com/images/apple-touch-icon-228x228.png?_v=d255ff972a31f03a6adc23f3677e7223"
+  },
+  {
+    label: "coinmarketcap",
+    url: "https://coinmarketcap.com",
+    image: "https://coinmarketcap.com/static/img/CoinMarketCap.png"
+  },
+  {
+    label: "microsoftonline",
+    url: "https://microsoftonline.com",
+    image: "https://secure.aadcdn.microsoftonline-p.com/ests/2.1.7039.18/content/images/favicon_a.ico"
+  },
+  {
+    label: "espn",
+    url: "https://espn.com",
+    image: "http://a.espncdn.com/wireless/mw5/r1/images/bookmark-icons/espn_icon-152x152.min.png"
+  },
+  {
+    label: "pinterest",
+    url: "https://pinterest.com",
+    image: "https://s.pinimg.com/webapp/style/images/logo_180-f06edffd.png"
+  },
+  {
+    label: "bbc",
+    url: "https://bbc.com",
+    image: "http://static.bbci.co.uk/wwhp/1.119.0/responsive/img/apple-touch/apple-touch-180.jpg"
+  },
+  {
+    label: "soundcloud",
+    url: "https://soundcloud.com",
+    image: "https://mobi.sndcdn.com/assets/images/sc-icons/iphone@2x-9c79c761.png"
   }
 ];
 
 export const TopSites = props => {
-  const placeholders = new Array(props.rows * 8 - data.length).fill(undefined);
+  const topSitesCount = props.rows * 8;
+  const topSites = data.slice(0, topSitesCount);
+  let placeholderCount = topSitesCount - topSites.length;
+  let placeholders = [];
+  if (placeholderCount > 0) {
+    placeholders = new Array(placeholderCount).fill(undefined);
+  }
   return <section className="collapsible-section top-sites">
     <div className="section-top-bar">
       <h3 className="section-title">
@@ -47,7 +118,7 @@ export const TopSites = props => {
     </div>
     <div className="section-body">
       <ul className="top-sites-list">
-        {data.map((site) => <TopSite {...site} />)}
+        {topSites.map((site) => <TopSite {...site} />)}
         {placeholders.map(() => <TopSite />)}
       </ul>
     </div>

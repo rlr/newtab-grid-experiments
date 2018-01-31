@@ -67,7 +67,7 @@ main {
     .card-outer {
       display: none;
 
-      &:nth-child(-n+1) {
+      &:nth-child(-n+2) {
         display: inline-block;
       }
     }
@@ -87,7 +87,7 @@ main {
     .card-outer {
       display: none;
 
-      &:nth-child(-n+1) {
+      &:nth-child(-n+2) {
         display: inline-block;
       }
     }
@@ -107,7 +107,7 @@ main {
     .card-outer {
       display: none;
 
-      &:nth-child(-n+2) {
+      &:nth-child(-n+4) {
         display: inline-block;
       }
     }
@@ -127,7 +127,7 @@ main {
     .card-outer {
       display: none;
 
-      &:nth-child(-n+3) {
+      &:nth-child(-n+6) {
         display: inline-block;
       }
     }

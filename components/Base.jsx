@@ -10,7 +10,7 @@ export const Base = () => <div className="outer-wrapper">
     <Search />
     <TopSites rows={2} />
     <div className="sections-list">
-      <Pocket />
+      <Pocket rows={2} />
       <Highlights />
     </div>
   </main>

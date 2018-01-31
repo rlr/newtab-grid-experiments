@@ -67,9 +67,9 @@ const data = [
     image: "https://assets.tumblr.com/images/apple-touch-icon-228x228.png?_v=d255ff972a31f03a6adc23f3677e7223"
   },
   {
-    label: "coinmarketcap",
-    url: "https://coinmarketcap.com",
-    image: "https://coinmarketcap.com/static/img/CoinMarketCap.png"
+    label: "chase",
+    url: "https://chase.com",
+    image: "https://www.chase.com/etc/designs/chase-ux/favicon-152.png"
   },
   {
     label: "microsoftonline",

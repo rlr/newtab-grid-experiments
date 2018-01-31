@@ -28,25 +28,59 @@ const data = [
     image: "https://img-getpocket.cdn.mozilla.net/direct?url=http%3A%2F%2Fimg.youtube.com%2Fvi%2FFKXOucXB4a8%2F0.jpg&amp;resize=w450",
     title: "If you watch closely enough, everything is a speaker",
     description: "Using high speed cameras, it’s possible to record the vibrations of everyday objects caused by nearby sounds and reverse engineer the sounds…essentially turning anything that vibrates into a speaker."
+  },
+  {
+    hostname: "themuse",
+    url: "https://www.themuse.com/advice/career-lessons-learned-two-year-old-roommate",
+    image: "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fpilbox.themuse.com%2Fimage.jpg%3Furl%3Dhttps%253A%252F%252Fassets.themuse.com%252Fuploaded%252Fattachments%252F27160.jpg%253Fv%253D2e6c6e10afa9ad97eb83a924d67254a2c73962abcc0ff9ae0563de60b66c3ea8%26h%3D367&resize=w450",
+    title: "8 Career Lessons I Learned From My Two-Year-Old Roommate",
+    description: "To start, I’m not a parent. I opted in to a commune-style Brooklyn home I found on Craigslist, and I live with a young couple and their two-year-old, Ilya.  I’ve now been living there for one year and I can confidently say it’s one of the best decisions I’ve ever made."
+  },
+  {
+    hostname: "imore",
+    url: "https://www.imore.com/homepod-vs-amazon-echo-vs-google-home-max-vs-sonos-one-speaker-showdown",
+    image: "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A%2F%2Fwww.imore.com%2Fsites%2Fimore.com%2Ffiles%2Fstyles%2Fxlarge%2Fpublic%2Ffield%2Fimage%2F2017%2F06%2Fhomepod-white-shelf.jpg%3Fitok%3DmhEdPSwY&resize=w450",
+    title: "HomePod vs. Amazon Echo vs. Google Home Max vs. Sonos One: Speaker showdown",
+    description: "I am not — nor do I have much desire to be — an \"audiophile.\" I didn't study audio production in school. I don't have a multi-thousand dollar audio rig."
+  },
+  {
+    hostname: "espn",
+    url: "http://www.espn.com/nba/story/_/id/22258759",
+    image: "https://img-getpocket.cdn.mozilla.net/direct?url=http%3A%2F%2Fa4.espncdn.com%2Fcombiner%2Fi%3Fimg%3D%252Fphoto%252F2017%252F0422%252Fr202069_1296x729_16%252D9.jpg%26w%3D1140%26cquality%3D40&resize=w450",
+    title: "Lowe: This Blake Griffin trade might be a trap for 'super-mediocrity'",
+    description: "Blake Griffin is an exquisitely skilled player in his prime."
+  },
+  {
+    hostname: "forbes",
+    url: "https://www.forbes.com/sites/piasilva/2018/01/24/9-5-is-out-try-the-1-6-instead/",
+    image: "https://d33ypg4xwx0n86.cloudfront.net/direct?url=https%3A%2F%2Fblogs-images.forbes.com%2Fpiasilva%2Ffiles%2F2018%2F01%2FForbes-Cartoon-square-MASTER-61-1200x1200.jpg&resize=w450",
+    title: "9-5 Is Out. Try The 1-6 Instead.",
+    description: "I was raised to covet the early morning hours. I’ve spent my whole life thinking I was more “accomplished” the earlier I woke up. I got this idea directly from my parents by living in a home where everyone was “up and at ‘em” by 6 am, sometimes earlier."
   }
 ];
 
-export const Pocket = () => <section className="collapsible-section section animation-enabled">
-  <div className="section-top-bar">
-    <h3 className="section-title">
-      <span className="click-target">
-        <span className="icon icon-small-spacer icon-pocket"></span>
-        <span>Recommended by Pocket</span>
-        <span className="collapsible-arrow icon icon-arrowhead-down"></span>
-      </span>
-    </h3>
-  </div>
-  <div className="section-body">
-    <ul className="section-list" style={{padding:0}}>
-      {data.map((site) => <Card {...site} />)}
-    </ul>
-  </div>
-</section>;
+
+export const Pocket = props => {
+  const storiesCount = props.rows * 4;
+  console.log(storiesCount);
+  const stories = data.slice(0, storiesCount);
+  return <section className="collapsible-section section animation-enabled">
+    <div className="section-top-bar">
+      <h3 className="section-title">
+        <span className="click-target">
+          <span className="icon icon-small-spacer icon-pocket"></span>
+          <span>Recommended by Pocket</span>
+          <span className="collapsible-arrow icon icon-arrowhead-down"></span>
+        </span>
+      </h3>
+    </div>
+    <div className="section-body">
+      <ul className="section-list" style={{padding:0}}>
+        {stories.map((site) => <Card {...site} />)}
+      </ul>
+    </div>
+  </section>;
+};
 
 const Card = props => <li className="card-outer">
   <a href={props.url}>

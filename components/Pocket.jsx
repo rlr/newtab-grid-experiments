@@ -62,7 +62,6 @@ const data = [
 
 export const Pocket = props => {
   const storiesCount = props.rows * 4;
-  console.log(storiesCount);
   const stories = data.slice(0, storiesCount);
   return <section className="collapsible-section section animation-enabled">
     <div className="section-top-bar">

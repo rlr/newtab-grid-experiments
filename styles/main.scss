@@ -50,6 +50,7 @@ a {
 
 main {
   margin: auto;
+  margin-top: 50px;
   // Offset the snippets container so things at the bottom of the page are still
   // visible when snippets / onboarding are visible. Adjust for other spacing.
   padding-bottom: $snippets-container-height - $section-spacing - $base-gutter;
@@ -177,4 +178,76 @@ main {
 }
 .twitter {
   background-image: url("../data/content/tippytop/images/twitter-com@2x.png");
+}
+
+.top-bar {
+  background: #fff;
+  border-bottom: solid 3px #000;
+  height: 50px;
+  left: 0;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+
+  select {
+    font-size: 14px;
+    margin: 14px 0;
+  }
+}
+
+main.wider-columns {
+  @media (min-width: $break-point-huge) {
+    .top-site-outer {
+      display:none;
+
+      &:nth-child(-n+12) {
+        display: inline-block;
+      }
+    }
+
+    .card-outer {
+      display: none;
+      height: 370px;
+      width: 100%;
+
+      &:nth-child(-n+6) {
+        display: inline-block;
+      }
+
+      > a {
+        width: 100%;
+      }
+
+      .card-preview-image-outer {
+        height: 155px;
+      }
+
+      .card-text {
+        max-height: 155px;
+      }
+    }
+
+    .sections-list {
+      .section-list {
+        grid-template-columns: repeat(auto-fit, 309px);
+      }
+    }
+
+    .top-sites-list {
+      .top-site-outer {
+        .tile {
+          height: 138px;
+          width: 138px;
+        }
+        .title {
+          width: 138px;
+        }
+        .rich-icon {
+          background-size: 100%;
+        }
+      }
+    }
+  }
 }

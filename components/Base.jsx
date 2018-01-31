@@ -8,23 +8,33 @@ import {Highlights} from "./Highlights";
 export class Base extends React.PureComponent {
   constructor(props) {
     super(props);
-    this.onLayoutChange = this.onLayoutChange.bind(this);
+    this.onTopSitesChange = this.onTopSitesChange.bind(this);
+    this.onPocketChange = this.onPocketChange.bind(this);
     this.state = {
-      layout: "more-columns"
+      topsites: "smaller-topsites",
+      pocket: "wider-columns"
     };
   }
-  onLayoutChange(ev) {
-    this.setState({layout: ev.target.value});
+  onTopSitesChange(ev) {
+    this.setState({topsites: ev.target.value});
+  }
+  onPocketChange(ev) {
+    this.setState({pocket: ev.target.value});
   }
   render() {
     return (<div className="outer-wrapper">
       <div className="top-bar">
-        <select onChange={this.onLayoutChange}>
-          <option value="more-columns">More columns</option>
-          <option value="wider-columns">Wider columns</option>
+        <select onChange={this.onTopSitesChange}>
+          <option value="smaller-topsites">Smaller Top Sites</option>
+          <option value="normal-topsites">Normal Top Sites</option>
+          <option value="bigger-topsites">Bigger Top Sites</option>
+        </select>
+        <select onChange={this.onPocketChange}>
+          <option value="wider-columns">Wider pocket columns</option>
+          <option value="more-columns">More pocket columns</option>
         </select>
       </div>
-      <main className={this.state.layout}>
+      <main className={`${this.state.topsites} ${this.state.pocket}`}>
         <Search />
         <TopSites rows={2} />
         <div className="sections-list">

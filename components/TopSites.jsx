@@ -99,7 +99,7 @@ const data = [
 ];
 
 export const TopSites = props => {
-  const topSitesCount = props.rows * 8;
+  const topSitesCount = props.rows * 9;
   const topSites = data.slice(0, topSitesCount);
   let placeholderCount = topSitesCount - topSites.length;
   let placeholders = [];
